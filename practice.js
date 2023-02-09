@@ -3,7 +3,7 @@ let data = [
     name: "DAU.OE兜特歐宜",
     district: "鼓山區",
     address: "青海路599號",
-    businessTime: "11:00-21:00",
+
     feature: {
       supportElect: "有插座",
       location: "",
@@ -14,7 +14,7 @@ let data = [
     name: "路人咖啡3號店",
     district: "三民區",
     address: "天津街253號",
-    businessTime: "9:00-19:00",
+
     feature: {
       supportElect: "",
       location: "近捷運站",
@@ -25,7 +25,7 @@ let data = [
     name: "銀座聚場 咖啡民宿",
     district: "鹽埕區",
     address: "五福四路260巷8號",
-    businessTime: "13:00-19:00",
+
     feature: {
       supportElect: "有插座",
       location: "近捷運站",
@@ -36,7 +36,7 @@ let data = [
     name: "潁川製所",
     district: "鳳山區",
     address: "光明路116號",
-    businessTime: "11:00-18:00",
+
     feature: {
       supportElect: "",
       location: "近捷運站",
@@ -47,7 +47,7 @@ let data = [
     name: "愛開玩笑的人",
     district: "鼓山區",
     address: "裕誠路1298號",
-    businessTime: "9:00-17:00",
+
     feature: {
       supportElect: "有插座",
       location: "",
@@ -58,7 +58,7 @@ let data = [
     name: "Café Strada 步道咖啡",
     district: "苓雅區",
     address: "中正二路67號",
-    businessTime: "12:00-22:30",
+
     feature: {
       supportElect: "有插座",
       location: "近捷運站",
@@ -72,7 +72,7 @@ function init() {
   let str = "";
   data.forEach(function (item, index) {
     console.log(
-      (str += `<li>☕${item.name}，位於${item.address}，營業時間為${item.businessTime}</li>`)
+      (str += `<li>☕${item.name}，位於${item.district}${item.address}</li>`)
     );
   });
   console.log(str);
@@ -90,11 +90,11 @@ feature.addEventListener("click", function (e) {
   let str = "";
   data.forEach(function (item, index) {
     if (e.target.value == "全部") {
-      str += `<li>☕${item.name}，位於${item.district}${item.address}，營業時間為${item.businessTime}</li>`;
+      str += `<li>☕${item.name}，位於${item.district}${item.address}，價格為${item.price}</li>`;
     } else if (item.feature.supportElect == e.target.value) {
-      str += `<li>☕${item.name}，位於${item.district}，價格大約為${item.price}</li>`;
+      str += `<li>☕${item.name}，位於${item.district}，特色為${item.feature.supportElect}</li>`;
     } else if (item.feature.location == e.target.value) {
-      str += `<li>☕${item.name}，位於${item.district}，價格大約為${item.price}</li>`;
+      str += `<li>☕${item.name}，位於${item.district}，特色為${item.feature.location}</li>`;
     }
   });
   cafe.innerHTML = str;
@@ -112,7 +112,7 @@ price.addEventListener("click", function (e) {
   let str = ""; //空字串
   data.forEach(function (item, index) {
     if (e.target.value == item.price) {
-      str += `<li>☕${item.name}，位於${item.address}，營業時間為${item.businessTime}</li>`;
+      str += `<li>☕${item.name}，位於${item.address}，價格大約為${item.price}</li>`;
     }
   });
   cafe.innerHTML = str;
@@ -135,18 +135,26 @@ btn.addEventListener("click", function (e) {
   console.log(cafeFeature.value);
   console.log(cafeFeatureLocation.value);
   console.log(cafePrice.value);
+
+  //用一個空物件，將資料push到 data裡面
+
+  let newCafe = {
+    feature: {},
+  };
+  newCafe.name = cafeName.value;
+  newCafe.district = cafeDistrict.value;
+  newCafe.address = cafeAddress.value;
+  newCafe.feature.supportElect = cafeFeature.value;
+  newCafe.feature.location = cafeFeatureLocation.value;
+  newCafe.price = cafePrice;
+
+  //要讓新增的咖啡廳顯示在頁面上
+
+  cafeName.value = "";
+  cafeDistrict.value = "區";
+  cafeAddress.value = "";
+  cafePrice.value = "$100-200NT";
+  cafeFeature.value = "有插座";
+  cafeFeatureLocation.value = "近捷運站";
+  data.push(newCafe);
 });
-
-//用一個空物件，將資料push到 data裡面
-let obj = {
-  feature: {},
-};
-obj.name = cafeName.value;
-obj.district = cafeDistrict.value;
-obj.address = cafeAddress.value;
-obj.price = cafePrice.value;
-obj.feature.supportElect = cafeFeature.value;
-obj.feature.location = cafeFeatureLocation.value;
-
-data.push(obj);
-data.pop();
