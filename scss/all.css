@@ -136,16 +136,19 @@ table {
 .coffee {
   width: 800px;
   margin: 0 auto;
-  background-color: lightcoral;
+  background-color: #e7e1db;
 }
 .coffee .h1 {
   text-align: center;
   padding: 30px;
   font-size: 36px;
+  color: #254252;
+  font-weight: bold;
 }
 .coffee .h2 {
   font-size: 24px;
   padding: 10px;
+  color: #745d60;
 }
 .coffee .cafeName {
   margin: 20px 20px 30px 20px;
@@ -155,6 +158,18 @@ table {
   margin-right: 50px;
   width: 200px;
 }
+.coffee .btn {
+  background-color: #a79094;
+  color: #3c3c3c;
+  font-weight: bold;
+  border: solid #a79094;
+}
+.coffee .btn:hover {
+  background-color: #745d60;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  color: #fff;
+}
 .coffee .selection {
   display: flex;
 }
@@ -162,11 +177,26 @@ table {
 .coffee .selection .price {
   margin: 50px 30px;
 }
+.coffee .selection .feature .h3,
+.coffee .selection .price .h3 {
+  color: #745d60;
+}
 .coffee .selection .feature input,
 .coffee .selection .price input {
   margin-left: 5px;
   width: 100px;
   height: 50px;
+  background-color: #94b0b7;
+  border: solid #94b0b7;
+  color: #3c3c3c;
+  font-weight: bold;
+}
+.coffee .selection .feature input:hover,
+.coffee .selection .price input:hover {
+  background-color: #7699a2;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  color: #fff;
 }
 .coffee .selection .feature .h3,
 .coffee .selection .price .h3 {
@@ -180,4 +210,5 @@ table {
 .coffee ul li {
   letter-spacing: 3px;
   padding: 20px;
+  color: #907478;
 }/*# sourceMappingURL=all.css.map */
