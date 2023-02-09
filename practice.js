@@ -146,15 +146,15 @@ btn.addEventListener("click", function (e) {
   newCafe.address = cafeAddress.value;
   newCafe.feature.supportElect = cafeFeature.value;
   newCafe.feature.location = cafeFeatureLocation.value;
-  newCafe.price = cafePrice;
+  newCafe.price = cafePrice.value;
 
+  data.push(newCafe);
   //要讓新增的咖啡廳顯示在頁面上
-
+  init();
   cafeName.value = "";
-  cafeDistrict.value = "區";
+  cafeDistrict.value = "前金區";
   cafeAddress.value = "";
   cafePrice.value = "$100-200NT";
   cafeFeature.value = "有插座";
   cafeFeatureLocation.value = "近捷運站";
-  data.push(newCafe);
 });
