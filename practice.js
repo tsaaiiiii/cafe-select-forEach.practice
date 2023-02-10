@@ -66,10 +66,10 @@ let data = [
     price: "$100-200NT",
   },
 ];
-const cafe = document.querySelector(".list");
 
+const cafe = document.querySelector(".list");
+let str = "";
 function init() {
-  let str = "";
   data.forEach(function (item, index) {
     console.log(
       (str += `<li>☕${item.name}，位於${item.district}${item.address}</li>`)
