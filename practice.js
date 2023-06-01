@@ -1,71 +1,81 @@
-let data = [
-  {
-    name: "DAU.OE兜特歐宜",
-    district: "鼓山區",
-    address: "青海路599號",
+// let data = [
+//   {
+//     name: "DAU.OE兜特歐宜",
+//     district: "鼓山區",
+//     address: "青海路599號",
 
-    feature: {
-      supportElect: "有插座",
-      location: "",
-    },
-    price: "$100-200NT",
-  },
-  {
-    name: "路人咖啡3號店",
-    district: "三民區",
-    address: "天津街253號",
+//     feature: {
+//       supportElect: "有插座",
+//       location: "",
+//     },
+//     price: "$100-200NT",
+//   },
+//   {
+//     name: "路人咖啡3號店",
+//     district: "三民區",
+//     address: "天津街253號",
 
-    feature: {
-      supportElect: "",
-      location: "近捷運站",
-    },
-    price: "$200-300NT",
-  },
-  {
-    name: "銀座聚場 咖啡民宿",
-    district: "鹽埕區",
-    address: "五福四路260巷8號",
+//     feature: {
+//       supportElect: "",
+//       location: "近捷運站",
+//     },
+//     price: "$200-300NT",
+//   },
+//   {
+//     name: "銀座聚場 咖啡民宿",
+//     district: "鹽埕區",
+//     address: "五福四路260巷8號",
 
-    feature: {
-      supportElect: "有插座",
-      location: "近捷運站",
-    },
-    price: "$300-400NT",
-  },
-  {
-    name: "潁川製所",
-    district: "鳳山區",
-    address: "光明路116號",
+//     feature: {
+//       supportElect: "有插座",
+//       location: "近捷運站",
+//     },
+//     price: "$300-400NT",
+//   },
+//   {
+//     name: "潁川製所",
+//     district: "鳳山區",
+//     address: "光明路116號",
 
-    feature: {
-      supportElect: "",
-      location: "近捷運站",
-    },
-    price: "$200-300NT",
-  },
-  {
-    name: "愛開玩笑的人",
-    district: "鼓山區",
-    address: "裕誠路1298號",
+//     feature: {
+//       supportElect: "",
+//       location: "近捷運站",
+//     },
+//     price: "$200-300NT",
+//   },
+//   {
+//     name: "愛開玩笑的人",
+//     district: "鼓山區",
+//     address: "裕誠路1298號",
 
-    feature: {
-      supportElect: "有插座",
-      location: "",
-    },
-    price: "$100-200NT",
-  },
-  {
-    name: "Café Strada 步道咖啡",
-    district: "苓雅區",
-    address: "中正二路67號",
+//     feature: {
+//       supportElect: "有插座",
+//       location: "",
+//     },
+//     price: "$100-200NT",
+//   },
+//   {
+//     name: "Café Strada 步道咖啡",
+//     district: "苓雅區",
+//     address: "中正二路67號",
 
-    feature: {
-      supportElect: "有插座",
-      location: "近捷運站",
-    },
-    price: "$100-200NT",
-  },
-];
+//     feature: {
+//       supportElect: "有插座",
+//       location: "近捷運站",
+//     },
+//     price: "$100-200NT",
+//   },
+// ];
+
+//https://tsaaiiiii.github.io/cafe-select-forEach.practice/data.json
+let data = [];
+axios
+  .get("https://tsaaiiiii.github.io/cafe-select-forEach.practice/data.json")
+  .then(function (response) {
+    console.log(response.data);
+    data = response.data;
+    init();
+  });
 
 const cafe = document.querySelector(".list");
 let str = "";
@@ -78,7 +88,6 @@ function init() {
   console.log(str);
   cafe.innerHTML = str;
 }
-init();
 
 //綁監聽 feature
 const feature = document.querySelector(".feature");
